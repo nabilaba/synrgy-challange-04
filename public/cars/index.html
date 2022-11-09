@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cari Mobil | BCR - Binar Car Rental</title>
+  <link href="./css/bootstrap-5.2.1-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./scripts/owlcarousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="./scripts/owlcarousel/assets/owl.theme.default.min.css">
+  <link href="./css/style.example.css" rel="stylesheet" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-xl nabil-navbar position-sticky top-0">
+    <div class="container-fluid nabil-container">
+      <a class="navbar-brand nabil-navbar__logo" href="/"></a>
+      <button class="navbar-toggler nabil-toggler" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end w-50" id="navbarScroll">
+        <div class="offcanvas-header pt-5 pb-0 py-lg-2">
+          <a class="offcanvas-title nav-link fw-bold text-black" id="offcanvasLabel" href="#">BCR</a>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body py-1 py-lg-0">
+          <ul class="navbar-nav ms-auto navbar-nav-scroll">
+            <li class="nav-item">
+              <a class="nav-link me-lg-4 fw-semibold" href="#ourservices">Our Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-lg-4 fw-semibold" href="#whyus">Why Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-lg-4 fw-semibold" href="#testimonial">Testimonial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-lg-4 fw-semibold" href="#faq">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-success nabil-button">Register</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main role="main">
+
+    <section id="hero" class="pt-0">
+      <div class="pt-5 nabil-bg-secondary">
+        <div class="container-fluid nabil-container row align-items-center mx-auto pe-0">
+          <div class="col-lg-5 px-0 pe-4">
+            <h2 class="fw-bold nabil-title">Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h2>
+            <p class="lead" style="font-size: 18px;">Selamat datang di Binar Car Rental. Kami menyediakan
+              mobil
+              kualitas terbaik dengan harga
+              terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.</p>
+          </div>
+          <div class="col-12 col-lg-7 mt-5 mt-lg-0 px-0">
+            <img src="assets/img_car.png" class="d-block mx-lg-auto img-fluid w-100" alt="Hero img" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Start Search -->
+    <section id="search" class="search-box">
+      <div class="search-content">
+        <div class="input-group d-flex flex-column">
+          <p>Tipe Driver</p>
+          <select class="form-select" id="driver" required>
+            <option class="item" value="" selected hidden>
+              Pilih Tipe Driver
+            </option>
+            <option class="item" value="true">Dengan Sopir</option>
+            <option class="item" value="false">
+              Tanpa Sopir (Lepas Kunci)
+            </option>
+          </select>
+        </div>
+        <div class="input-group d-flex flex-column">
+          <p>Tanggal</p>
+          <input type="date" class="form-control" id="date" required />
+        </div>
+        <div class="input-group d-flex flex-column">
+          <p>Waktu Jemput/Ambil</p>
+          <input type="time" id="time" class="form-control" required />
+        </div>
+        <div class="input-group d-flex flex-column">
+          <p>Jumlah Penumpang (Opsional)</p>
+          <div class="d-flex flex-row">
+            <input
+              type="number"
+              class="form-control item"
+              id="passanger"
+              style="background-color: #fff"
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success border-0 px-2" id="load-btn">
+          Cari Mobil
+        </button>
+      </div>
+    </section>
+    <!-- End Search -->
+
+    <!-- Start Results -->
+    <section id="result" class="container result-container">
+      <div class="result d-flex" id="cars-container">
+        <!-- JSON Data -->
+      </div>
+    </section>
+    <!-- End Results -->
+
+  </main>
+
+  <footer class="py-5 container-fluid nabil-container">
+    <div class="row g-4 g-md-5">
+      <div class="col-12 col-md-6 col-xl-4">
+        <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+        <p>binarcarrental@gmail.com</p>
+        <p>081-233-334-808</p>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-2">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link pt-0 px-0 text-black fw-semibold" href="#ourservices">Our Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-0 text-black fw-semibold" href="#whyus">Why Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-0 text-black fw-semibold" href="#testimonial">Testimonial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-0 text-black fw-semibold" href="#faq">FAQ</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <p>Connect With Us</p>
+        <div class="d-flex gap-3">
+          <div class="rounded-circle p-1 nabil-list__bg-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z"
+                stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="rounded-circle p-1 nabil-list__bg-blue">
+            <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14.1666 1.66663H5.83329C3.53211 1.66663 1.66663 3.53211 1.66663 5.83329V14.1666C1.66663 16.4678 3.53211 18.3333 5.83329 18.3333H14.1666C16.4678 18.3333 18.3333 16.4678 18.3333 14.1666V5.83329C18.3333 3.53211 16.4678 1.66663 14.1666 1.66663Z"
+                stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M13.3334 9.47501C13.4362 10.1685 13.3178 10.8769 12.9948 11.4992C12.6719 12.1215 12.161 12.6262 11.5347 12.9414C10.9085 13.2566 10.1987 13.3663 9.50653 13.2549C8.81431 13.1436 8.17484 12.8167 7.67907 12.321C7.1833 11.8252 6.85648 11.1857 6.7451 10.4935C6.63371 9.8013 6.74343 9.09159 7.05865 8.46532C7.37386 7.83905 7.87853 7.32812 8.50086 7.00521C9.12319 6.68229 9.8315 6.56383 10.525 6.66667C11.2325 6.77158 11.8874 7.10123 12.3931 7.60693C12.8988 8.11263 13.2285 8.76757 13.3334 9.47501Z"
+                stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M14.5834 5.41663H14.5917" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="rounded-circle p-1 nabil-list__bg-blue">
+            <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19.1667 2.49996C18.3687 3.06285 17.4851 3.49338 16.55 3.77496C16.0482 3.19788 15.3812 2.78887 14.6392 2.60323C13.8973 2.41759 13.1163 2.46429 12.4018 2.737C11.6873 3.00972 11.0737 3.49529 10.6442 4.12805C10.2146 4.76082 9.98979 5.51024 10 6.27496V7.10829C8.53557 7.14626 7.08444 6.82147 5.77588 6.16283C4.46733 5.50419 3.34197 4.53215 2.50004 3.33329C2.50004 3.33329 -0.833292 10.8333 6.66671 14.1666C4.95048 15.3316 2.906 15.9157 0.833374 15.8333C8.33337 20 17.5 15.8333 17.5 6.24996C17.4993 6.01783 17.477 5.78629 17.4334 5.55829C18.2839 4.71953 18.8841 3.66055 19.1667 2.49996V2.49996Z"
+                stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="rounded-circle p-1 nabil-list__bg-blue">
+            <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3.33329 3.33337H16.6666C17.5833 3.33337 18.3333 4.08337 18.3333 5.00004V15C18.3333 15.9167 17.5833 16.6667 16.6666 16.6667H3.33329C2.41663 16.6667 1.66663 15.9167 1.66663 15V5.00004C1.66663 4.08337 2.41663 3.33337 3.33329 3.33337Z"
+                stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M18.3333 5L9.99996 10.8333L1.66663 5" stroke="white" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="rounded-circle p-1 nabil-list__bg-blue">
+            <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.3333 9.16663V5.83329M17.5 1.66663H2.5V15H6.66667V18.3333L10 15H14.1667L17.5 11.6666V1.66663ZM9.16667 9.16663V5.83329V9.16663Z"
+                stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <p>Copyright Binar 2022</p>
+        <a class="navbar-brand" href="https://nabilaba.github.io/" target="_blank">
+          <div class="nabil-navbar__logo"></div>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="./css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
+  <script src="./scripts/jquery-3.6.1.min.js"></script>
+  <script src="./scripts/owlcarousel/owl.carousel.min.js"></script>
+  <script>
+    $(".owl-carousel1").owlCarousel({
+      loop: true,
+      center: true,
+      margin: 20,
+      nav: true,
+      navClass: ["nabil-owl-prev", "nabil-owl-next"],
+      navText: ["<svg width='30' height='30' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12.5 15L7.5 10L12.5 5' stroke='#222222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>", "<svg width='30' height='30' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='20' height='20' fill='#5CB85F'/><path d='M7.5 15L12.5 10L7.5 5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>"],
+      dots: false,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        768: {
+          items: 2,
+        }
+      },
+    });
+  </script>
+  <script type="text/javascript" src="./scripts/binar.js"></script>
+  <script type="text/javascript" src="./scripts/app.example.js"></script>
+  <script type="text/javascript" src="./scripts/car.example.js"></script>
+  <script type="text/javascript" src="./scripts/main.example.js"></script>
+</body>
+
+</html>

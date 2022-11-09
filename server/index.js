@@ -6,36 +6,30 @@ const path = require("path");
 const port = 9000;
 
 const server = http.createServer((req, res) => {
-  const folder = path.join(__dirname, "../public");
   const urlReq = url.parse(req.url, true);
-  const filePath = path.join(folder, urlReq.pathname);
-  const extReq = path.extname(filePath);
+  const publicPath = path.join(__dirname, "../public", urlReq.pathname);
 
-  if (fs.existsSync(filePath)) {
-    if (fs.statSync(filePath).isDirectory()) {
-      if (fs.existsSync(path.join(filePath, "index.html"))) {
-        fs.readFile(path.join(filePath, "index.html"), (err, data) => {
-          if (err) throw err;
-          res.end(data);
-        });
+  if (fs.existsSync(publicPath)) {
+    if (fs.statSync(publicPath).isDirectory()) {
+      if (fs.existsSync(path.join(publicPath, "index.html"))) {
+        fs.readFile(
+          path.join(publicPath, "index.html"),
+          (err, data) => {
+            if (err) throw err;
+            res.end(data);
+          }
+        );
       } else {
-        fs.readdir(filePath, (err, files) => {
+        fs.readdir(publicPath, (err, files) => {
           if (err) throw err;
           res.end(files.join(", "));
         });
       }
     } else {
-      if (extReq === ".html") {
-        fs.readFile(filePath, (err, data) => {
-          if (err) throw err;
-          res.end(data);
-        });
-      } else {
-        fs.readFile(filePath, (err, data) => {
-          if (err) throw err;
-          res.end(data);
-        });
-      }
+      fs.readFile(publicPath, (err, data) => {
+        if (err) throw err;
+        res.end(data);
+      });
     }
   } else {
     res.end("404 Not Found");
@@ -43,5 +37,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(`Server is running at port ${port}`);
+  console.log(`Server is running at port http://localhost:${port}`);
 });

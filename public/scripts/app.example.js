@@ -1,3 +1,4 @@
+// Class App
 class App {
   constructor() {
     this.clearButton = document.getElementById("clear-btn");
@@ -5,21 +6,42 @@ class App {
     this.carContainerElement = document.getElementById("cars-container");
   }
 
+  // Async Await Button
   async init() {
     await this.load();
-
-    // Register click listener
-    this.clearButton.onclick = this.clear;
     this.loadButton.onclick = this.run;
   }
 
+  // Function Filter car
   run = () => {
-    Car.list.forEach((car) => {
+    this.clear();
+    const data = this.filterCar();
+
+    // Jika data yang di cari tidak ditemukan
+    if (data.length == 0 || data == undefined) {
       const node = document.createElement("div");
-      node.innerHTML = car.render();
+      node.innerHTML = `<div class="alert alert-danger mt-2" role="alert">Data Tidak Ditemukan</div>`;
       this.carContainerElement.appendChild(node);
-    });
+    } else {
+      // jika di temukan
+      data.forEach((car) => {
+        const node = document.createElement("div");
+        node.innerHTML = car.render();
+        this.carContainerElement.appendChild(node);
+      });
+    }
   };
+
+  // method filterCar
+  filterCar() {
+    const driver = document.getElementById("driver").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+    const dateTime = new Date(`${date} ${time}`);
+    const passanger = document.getElementById("passanger").value;
+
+    return Car.list;
+  }
 
   async load() {
     const cars = await Binar.listCars();
@@ -34,4 +56,31 @@ class App {
       child = this.carContainerElement.firstElementChild;
     }
   };
+}
+
+// function format rupiah
+function rupiah(number) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  }).format(number);
+}
+
+// function format time date
+function getDateTimeNow() {
+  var today = new Date();
+  var date =
+    today.getFullYear() +
+    "-" +
+    String(today.getMonth() + 1).padStart(2, "0") +
+    "-" +
+    String(today.getDate()).padStart(2, "0");
+  var time =
+    String(today.getHours()).padStart(2, "0") +
+    ":" +
+    String(today.getMinutes()).padStart(2, "0") +
+    ":" +
+    String(today.getSeconds()).padStart(2, "0");
+  var dateNow = date + "T" + time + ".000Z";
+  return dateNow;
 }

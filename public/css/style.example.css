@@ -1,0 +1,246 @@
+/* set body font to Helvetica */
+body {
+  font-family: Helvetica, system-ui;
+}
+
+/* set custom section id sewamobil */
+#sewamobil {
+  padding: 75px 0 0 0;
+}
+#sewamobil p {
+  max-width: 55%;
+}
+
+/* navbar */
+.nabil-navbar {
+  background-color: #f1f3ff;
+  z-index: 5;
+}
+.nabil-navbar__logo {
+  background: #0d28a6;
+  width: 100px;
+  height: 34px;
+}
+
+/* remove toggler, btn close offcanvas and accordion border when focus */
+.btn-close:focus,
+.navbar-toggler:focus,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.125);
+}
+
+/* custom button hamburger */
+.nabil-toggler {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: transform 0.3s ease-in-out;
+}
+.nabil-toggler:hover {
+  transform: rotate(360deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* custom button */
+.nabil-button,
+.nabil-button:hover,
+.nabil-button:active,
+.nabil-button:focus,
+.nabil-button:visited {
+  background: #5cb85f !important;
+  border-radius: 2px !important;
+  border-width: 0 !important;
+}
+
+/* custom title */
+.nabil-title {
+  font-size: 2rem;
+}
+#hero .nabil-title,
+#sewamobil .nabil-title {
+  font-size: 3rem;
+}
+
+/* custom bg */
+.nabil-bg-secondary {
+  background-color: #f1f3ff;
+}
+
+/* testimonials */
+.testimonials .owl-nav {
+  margin-top: 15px;
+}
+.nabil-owl-prev,
+.nabil-owl-next {
+  padding: 5px !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+  border-radius: 50% !important;
+  transition: all 0.125s ease-in-out;
+}
+.nabil-owl-prev {
+  border: 1px solid #000 !important;
+  background-color: transparent !important;
+}
+.nabil-owl-next {
+  border: 1px solid #5cb85f !important;
+  background-color: #5cb85f !important;
+}
+.nabil-owl-prev:active,
+.nabil-owl-next:active {
+  transform: scale(0.75);
+  transition: all 0.3s ease-in-out;
+}
+.testimonial__img {
+  max-width: 90px;
+  height: 90px;
+}
+
+/* set custom section except first child and id sewamobil */
+section:not(:first-child, #sewamobil, #search, #result) {
+  min-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 75px 0 0 0;
+}
+
+/* make responsive */
+.nabil-container {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+@media (min-width: 576px) {
+  .nabil-container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .nabil-container {
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
+  }
+  .nabil-title {
+    font-size: 1.75rem;
+  }
+  #sewamobil .nabil-title {
+    font-size: 2.5rem;
+  }
+  #sewamobil p {
+    max-width: 47%;
+  }
+}
+@media (min-width: 992px) {
+  section:not(:first-child, #sewamobil, #search, #result) {
+    min-height: 100vh;
+    padding: 0;
+  }
+  .nabil-container {
+    padding-right: 3.5rem;
+    padding-left: 3.5rem;
+  }
+
+  #hero .nabil-title {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .nabil-container {
+    padding-right: 7rem;
+    padding-left: 7rem;
+  }
+}
+
+/* custom list style */
+.nabil-list {
+  background-color: #cfd4ed;
+  width: max-content;
+  height: max-content;
+}
+.nabil-list__bg-blue {
+  background-color: #0d28a6;
+  width: max-content;
+}
+
+/* set custom font size */
+.nabil-fs-14 {
+  font-size: 14px;
+}
+.nabil-fs-15 {
+  font-size: 15px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  margin-bottom: 100px;
+}
+.search-content {
+  z-index: 100;
+  min-width: 73%;
+  padding: 24px;
+  height: fit-content;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  margin-top: -50px;
+}
+
+.input-group {
+  width: 21%;
+}
+
+.input-group > .form-control,
+.input-group > .form-select {
+  border-radius: 3px !important;
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+  color: #3c3c3c;
+}
+
+.item {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.form-control:hover,
+.form-control:focus,
+.form-select:hover,
+.form-select:focus {
+  border: 1px solid #5cb85f;
+  box-shadow: none;
+}
+
+.result-container {
+  text-align: -webkit-center;
+}
+.result {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap;
+  text-align: left;
+  color: black;
+}
