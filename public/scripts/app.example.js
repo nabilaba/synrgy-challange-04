@@ -32,15 +32,128 @@ class App {
     }
   };
 
-  // method filterCar
   filterCar() {
     const driver = document.getElementById("driver").value;
     const date = document.getElementById("date").value;
+    const formatDate = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     const time = document.getElementById("time").value;
-    const dateTime = new Date(`${date} ${time}`);
+    const formatTime = {
+      hour: "numeric",
+      minute: "numeric",
+    };
     const passanger = document.getElementById("passanger").value;
 
-    return Car.list;
+    if (
+      driver == "dengan-sopir" &&
+      date != "" &&
+      time != "" &&
+      passanger != ""
+    ) {
+      return Car.list.filter(
+        (car) =>
+          car.available == true &&
+          new Date(car.availableAt).toLocaleDateString("id-ID", formatDate) ==
+            new Date(date).toLocaleDateString("id-ID", formatDate) &&
+          new Date(car.availableAt).toLocaleTimeString("id-ID", formatTime) ==
+            time.split(":").join(".") &&
+          car.capacity == passanger
+      );
+    }
+
+    if (
+      driver == "tanpa-sopir" &&
+      date != "" &&
+      time != "" &&
+      passanger != ""
+    ) {
+      return Car.list.filter(
+        (car) =>
+          car.available == false &&
+          new Date(car.availableAt).toLocaleDateString("id-ID", formatDate) ==
+            new Date(date).toLocaleDateString("id-ID", formatDate) &&
+          new Date(car.availableAt).toLocaleTimeString("id-ID", formatTime) ==
+            time.split(":").join(".") &&
+          car.capacity == passanger
+      );
+    }
+
+    if (driver == "dengan-sopir" && date != "" && time != "") {
+      return Car.list.filter(
+        (car) =>
+          car.available == true &&
+          new Date(car.availableAt).toLocaleDateString("id-ID", formatDate) ==
+            new Date(date).toLocaleDateString("id-ID", formatDate) &&
+          new Date(car.availableAt).toLocaleTimeString("id-ID", formatTime) ==
+            time.split(":").join(".")
+      );
+    }
+
+    if (driver == "tanpa-sopir" && date != "" && time != "") {
+      return Car.list.filter(
+        (car) =>
+          car.available == false &&
+          new Date(car.availableAt).toLocaleDateString("id-ID", formatDate) ==
+            new Date(date).toLocaleDateString("id-ID", formatDate) &&
+          new Date(car.availableAt).toLocaleTimeString("id-ID", formatTime) ==
+            time.split(":").join(".")
+      );
+    }
+
+    if (driver == "dengan-sopir" && date != "") {
+      return Car.list.filter(
+        (car) =>
+          car.available == true &&
+          new Date(car.availableAt).toLocaleDateString("id-ID", formatDate) ==
+            new Date(date).toLocaleDateString("id-ID", formatDate)
+      );
+    }
+
+    if (driver == "tanpa-sopir" && date != "") {
+      return Car.list.filter(
+        (car) =>
+          car.available == false &&
+          new Date(car.availableAt).toLocaleDateString("id-ID", formatDate) ==
+            new Date(date).toLocaleDateString("id-ID", formatDate)
+      );
+    }
+
+    if (driver == "dengan-sopir") {
+      return Car.list.filter((car) => car.available == true);
+    }
+
+    if (driver == "tanpa-sopir") {
+      return Car.list.filter((car) => car.available == false);
+    }
+
+    if (date != "" && time != "" && passanger != "") {
+      return Car.list.filter(
+        (car) =>
+          new Date(car.availableAt).toLocaleDateString("id-ID", formatDate) ==
+            new Date(date).toLocaleDateString("id-ID", formatDate) &&
+          new Date(car.availableAt).toLocaleTimeString("id-ID", formatTime) ==
+            time.split(":").join(".") &&
+          car.capacity == passanger
+      );
+    }
+
+    if (time != "" && passanger != "") {
+      return Car.list.filter(
+        (car) =>
+          new Date(car.availableAt).toLocaleTimeString("id-ID", formatTime) ==
+            time.split(":").join(".") && car.capacity == passanger
+      );
+    }
+
+    if (passanger != "") {
+      return Car.list.filter((car) => car.capacity == passanger);
+    }
+
+    return Car.list.filter((car) => car);
   }
 
   async load() {
@@ -58,7 +171,6 @@ class App {
   };
 }
 
-// function format rupiah
 function rupiah(number) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -66,7 +178,6 @@ function rupiah(number) {
   }).format(number);
 }
 
-// function format time date
 function getDateTimeNow() {
   var today = new Date();
   var date =

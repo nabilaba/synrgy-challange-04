@@ -67,8 +67,6 @@
       </div>
     </section>
 
-
-    <!-- Start Search -->
     <section id="search" class="search-box">
       <div class="search-content">
         <div class="input-group d-flex flex-column">
@@ -77,8 +75,8 @@
             <option class="item" value="" selected hidden>
               Pilih Tipe Driver
             </option>
-            <option class="item" value="true">Dengan Sopir</option>
-            <option class="item" value="false">
+            <option class="item" value="dengan-sopir">Dengan Sopir</option>
+            <option class="item" value="tanpa-sopir">
               Tanpa Sopir (Lepas Kunci)
             </option>
           </select>
@@ -94,30 +92,19 @@
         <div class="input-group d-flex flex-column">
           <p>Jumlah Penumpang (Opsional)</p>
           <div class="d-flex flex-row">
-            <input
-              type="number"
-              class="form-control item"
-              id="passanger"
-              style="background-color: #fff"
-            />
+            <input type="number" class="form-control item" id="passanger" style="background-color: #fff" />
           </div>
         </div>
-
-        <button type="submit" class="btn btn-success border-0 px-2" id="load-btn">
+          <button type="submit" class="btn btn-success border-0 px-2 align-self-end" id="load-btn">
           Cari Mobil
         </button>
       </div>
     </section>
-    <!-- End Search -->
 
-    <!-- Start Results -->
-    <section id="result" class="container result-container">
-      <div class="result d-flex" id="cars-container">
-        <!-- JSON Data -->
+    <section id="result" class="container-fluid nabil-container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 align-content-center g-3" id="cars-container">
       </div>
     </section>
-    <!-- End Results -->
-
   </main>
 
   <footer class="py-5 container-fluid nabil-container">

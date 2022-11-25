@@ -186,7 +186,7 @@ section:not(:first-child, #sewamobil, #search, #result) {
   margin-bottom: 100px;
 }
 .search-content {
-  z-index: 100;
+  z-index: 4;
   min-width: 73%;
   padding: 24px;
   height: fit-content;
